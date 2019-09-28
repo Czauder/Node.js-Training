@@ -1,0 +1,14 @@
+{
+  "name": "todolist_with_db_mongo.db",
+  "version": "1.0.0",
+  "description": " project witch help me understand how to work with db. ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Czauder",
+  "license": "ISC",
+  "dependencies": {
+    "mongodb": "^3.3.2"
+  }
+}
