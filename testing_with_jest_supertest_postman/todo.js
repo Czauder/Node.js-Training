@@ -12,19 +12,24 @@
 
 
  exports.list = (req, res) => {
-     res.send(todos)
+     res.json(todos)
  };
 
- exports.create = (req, res) => {
-     res.send('Created')
+ exports.create = (req, res, next) => {
+     if(req.body && req.body.name) {
+     console.log(req.body)
+     res.json(`Created: ${req.body.name}`)
+     } else {
+         next(new Error('Name is missing'))
+     }
  };
 
  exports.change = (req, res) => {
-     res.send(`Change: ${req.params.id}`)
+     res.json(`Change: ${req.params.id}`)
  };
 
  exports.delete = (req, res) => {};
 
  exports.toggle = (req, res) => {
-     res.send(`Toogle: ${req.params.id}`)
+     res.json(`Toogle: ${req.params.id}`)
  };

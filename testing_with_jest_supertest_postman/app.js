@@ -1,10 +1,11 @@
 const express = require('express');
-
+const bodyParser = require('body-parser')
 const todo = require('./todo')
 
 const app = express()
  
-app.set('x-powered-by', false)
+app.set('x-powered-by', false);
+app.use(bodyParser.json());
 
 // GET /
 // POST /
@@ -12,15 +13,11 @@ app.set('x-powered-by', false)
 // DELETE /:id
 // POST /:id/toggle
 
-app.get('/', todo.list)
-
-app.post('/', todo.create)
-
-app.put('/:id', todo.change)
-
-app.delete('/:id', todo.delete)
-
-app.post('/:id/toggle', todo.toggle)
+app.get('/', todo.list);
+app.post('/', todo.create);
+app.put('/:id', todo.change);
+app.delete('/:id', todo.delete);
+app.post('/:id/toggle', todo.toggle);
 
 app.get('*', (res,req) => {
   res.status(404)
